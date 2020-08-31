@@ -100,6 +100,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)initializeWithConfiguration:(ParseClientConfiguration *)configuration;
 
 /**
+ Update the configuration on the fly.
+
+ @param configuration The new configuration to set for the SDK.
+ */
++ (void)updateConfiguration:(ParseClientConfiguration *)configuration;
+
+/**
  Gets the current configuration in use by the Parse SDK.
 
  @return The current configuration in use by the SDK. Returns nil if the SDK has not been initialized yet.
