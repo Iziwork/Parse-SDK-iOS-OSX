@@ -256,4 +256,14 @@ static ParseClientConfiguration *currentParseConfiguration_;
     return collection;
 }
 
+///--------------------------------------
+#pragma mark - Request modifiers
+///--------------------------------------
+
++ (void)addRequestModifier:(PFRequestModifier)requestModifier {
+    PFConsistencyAssert(currentParseManager_,
+                        @"You have to call setApplicationId:clientKey: on Parse to configure Parse.");
+    [currentParseManager_.requestModifiers addObject:requestModifier];
+}
+
 @end

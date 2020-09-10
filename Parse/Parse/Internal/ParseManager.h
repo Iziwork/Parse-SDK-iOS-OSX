@@ -12,6 +12,7 @@
 #import <Parse/ParseClientConfiguration.h>
 #import <Parse/PFConstants.h>
 
+#import "Parse.h"
 #import "PFDataProvider.h"
 #import "PFOfflineStore.h"
 #import "PFMacros.h"
@@ -46,6 +47,8 @@ PFInstallationIdentifierStoreProvider>
 #if TARGET_OS_IOS || TARGET_OS_TV
 @property (nonatomic, strong) PFPurchaseController *purchaseController;
 #endif
+
+@property (nonatomic, retain) NSMutableArray<PFRequestModifier>* requestModifiers;
 
 ///--------------------------------------
 #pragma mark - Initialization

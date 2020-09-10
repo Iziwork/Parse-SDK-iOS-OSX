@@ -73,6 +73,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^PFRequestModifier)(NSMutableURLRequest *request);
+
 /**
  The `Parse` class contains static functions that handle global configuration for the Parse framework.
  */
@@ -247,6 +249,12 @@ NS_ASSUME_NONNULL_BEGIN
  @see PFLogLevel
  */
 @property (nonatomic, readwrite, class) PFLogLevel logLevel;
+
+///--------------------------------------
+#pragma mark - Request modifiers
+///--------------------------------------
+
++ (void)addRequestModifier:(PFRequestModifier)requestModifier;
 
 @end
 
