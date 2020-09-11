@@ -82,6 +82,7 @@ static NSString *const _ParseApplicationIdFileName = @"applicationId";
 #if TARGET_OS_IOS || TARGET_OS_TV
 @synthesize purchaseController = _purchaseController;
 #endif
+@synthesize requestModifiers = _requestModifiers;
 
 ///--------------------------------------
 #pragma mark - Init
@@ -106,6 +107,7 @@ static NSString *const _ParseApplicationIdFileName = @"applicationId";
     _preloadQueue = dispatch_queue_create("com.parse.preload", DISPATCH_QUEUE_SERIAL);
 
     _configuration = [configuration copy];
+    _requestModifiers = [NSMutableArray new];
 
     return self;
 }

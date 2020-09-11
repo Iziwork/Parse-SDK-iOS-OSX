@@ -82,10 +82,16 @@
             PFPreconditionReturnFailedTask(requestParameters, error);
         }
 
-        return [PFHTTPURLRequestConstructor urlRequestWithURL:url
-                                                   httpMethod:requestMethod
-                                                  httpHeaders:headers
-                                                   parameters:requestParameters];
+        NSMutableURLRequest *request = [PFHTTPURLRequestConstructor urlRequestWithURL:url
+                                                                           httpMethod:requestMethod
+                                                                          httpHeaders:headers
+                                                                           parameters:requestParameters];
+
+        for (PFRequestModifier requestModifier in Parse._currentManager.requestModifiers) {
+            requestModifier(request);
+        }
+
+        return request;
     }];
 }
 
